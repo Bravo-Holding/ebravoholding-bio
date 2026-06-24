@@ -1,0 +1,9 @@
+CLAUDE.md
+.claude/
+*.jpg
+!og-image.jpg
+*.psd
+*.ai
+/rascunhos/
+/briefing/
+.DS_Store
