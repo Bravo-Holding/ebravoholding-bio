@@ -27,7 +27,7 @@ Options -Indexes
   <IfModule mod_setenvif.c>
     SetEnvIf Request_URI "^/(index\.html)?$" CSP_HOME
   </IfModule>
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com https://www.googletagmanager.com https://www.google-analytics.com https://i.ytimg.com; connect-src 'self' https://connect.facebook.net https://www.facebook.com https://www.google-analytics.com https://*.google-analytics.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com; frame-ancestors 'self'" env=CSP_HOME
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com https://www.googletagmanager.com https://www.google-analytics.com https://i.ytimg.com; connect-src 'self' https://connect.facebook.net https://www.facebook.com https://www.google-analytics.com https://*.google-analytics.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com; frame-ancestors 'self'" env=CSP_HOME
 </IfModule>
 
 # --- Cache ---
