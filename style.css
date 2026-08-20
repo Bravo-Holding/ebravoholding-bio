@@ -1,27 +1,5 @@
 /* style.css — não crítico (footer, variações, refinamentos) */
 
-.link--wpp{
-  background:#0E0E0E;
-  border:1.5px solid var(--btn);
-  color:var(--btn);
-  box-shadow:0 4px 0 #000;
-}
-@media (hover:hover){
-  .link--wpp:hover{background:var(--btn);color:#fff}
-}
-.link--wpp .ico{flex:0 0 auto}
-
-.link--yt{
-  background:#0E0E0E;
-  border:1.5px solid var(--muted);
-  color:#fff;
-  box-shadow:0 4px 0 #000;
-}
-@media (hover:hover){
-  .link--yt:hover{border-color:#FF0000;color:#fff}
-}
-.link--yt .ico{flex:0 0 auto;color:#FF0000}
-
 .foot{
   margin-top:34px;
   color:var(--muted);
