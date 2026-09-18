@@ -3,12 +3,13 @@
 .foot{
   margin-top:34px;
   color:var(--muted);
-  font-size:.82rem;
+  font-size:.86rem;
   text-align:center;
 }
 
 /* leve respiro tipográfico no desktop */
 @media (min-width:600px){
-  h1{font-size:1.8rem}
-  .tagline{font-size:1.08rem}
+  .card__title{font-size:1.12rem}
+  .card--hero .card__title{font-size:1.3rem}
+  .card__desc{font-size:.92rem}
 }
