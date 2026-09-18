@@ -43,7 +43,7 @@
   "@type": "Person",
   "name": "Ewertton Bravo",
   "url": "https://ebravoholding.com/",
-  "image": "https://ebravoholding.com/assets/avatar.webp?v=3",
+  "image": "https://ebravoholding.com/assets/avatar.webp?v=4",
   "description": "Tiro cristão da procrastinação.",
   "jobTitle": "Mentor",
   "sameAs": ["https://www.youtube.com/@ewerttonbravo"]
@@ -67,19 +67,19 @@ body{
   min-height:100vh; display:flex; justify-content:center;
 }
 .wrap{
-  width:100%; max-width:480px; padding:40px 20px 48px;
+  width:100%; max-width:480px; padding:40px 16px 48px;
   display:flex; flex-direction:column; align-items:center;
 }
 .avatar{
-  width:160px; height:160px; border-radius:50%;
+  width:200px; height:200px; border-radius:50%;
   display:block; object-fit:cover;
 }
 h1{
   font-family:"Fraunces",Georgia,serif; font-weight:700;
-  font-size:2rem; letter-spacing:-.015em; margin-top:20px; text-align:center;
+  font-size:2.4rem; letter-spacing:-.015em; margin-top:22px; text-align:center;
 }
 .tagline{
-  color:var(--red); font-weight:700; font-size:1.12rem;
+  color:var(--red); font-weight:700; font-size:1.28rem;
   margin-top:8px; text-align:center;
 }
 
@@ -90,7 +90,7 @@ h1{
 }
 .card{
   position:relative; display:flex; align-items:center; gap:14px;
-  padding:14px; text-decoration:none; color:var(--text);
+  padding:16px; text-decoration:none; color:var(--text);
   background:var(--card); border:1px solid var(--card-line);
   border-radius:16px;
   transition:transform .08s ease, border-color .15s ease, background .15s ease;
@@ -99,18 +99,19 @@ h1{
 @media (hover:hover){.card:hover{background:#1A1A1A;border-color:#3A3A3A}}
 
 .thumb{
-  flex:0 0 auto; width:84px; height:84px; border-radius:12px;
+  flex:0 0 auto; width:104px; height:104px; border-radius:14px;
   display:block; object-fit:cover; background:#1A1A1A;
 }
-.title-ico{width:15px;height:15px;vertical-align:-2px;margin-left:6px;flex:0 0 auto}
+.nowrap{white-space:nowrap}
+.title-ico{width:17px;height:17px;vertical-align:-2px;margin-left:6px;flex:0 0 auto}
 .ico-yt{color:#FF0000}
 .ico-wpp{color:var(--btn)}
 
 .card__body{display:flex;flex-direction:column;gap:4px;min-width:0}
 .card__title{
-  font-weight:700; font-size:1.06rem; line-height:1.25; letter-spacing:-.01em;
+  font-weight:700; font-size:1.2rem; line-height:1.25; letter-spacing:-.01em;
 }
-.card__desc{color:var(--muted);font-size:.88rem;line-height:1.35}
+.card__desc{color:var(--muted);font-size:1rem;line-height:1.35}
 
 /* destaque: Diagnóstico Gratuito */
 .card--hero{
@@ -122,19 +123,19 @@ h1{
 }
 @media (hover:hover){.card--hero:hover{background:linear-gradient(180deg,#241609,#161616);border-color:#FF8A2B}}
 .hero__top{display:flex;align-items:center;gap:14px}
-.card--hero .thumb{width:96px;height:96px}
-.card--hero .card__title{font-size:1.2rem;color:var(--accent)}
-.card--hero .card__desc{font-size:.92rem;color:#D4D4D4}
+.card--hero .thumb{width:116px;height:116px}
+.card--hero .card__title{font-size:1.35rem;color:var(--accent)}
+.card--hero .card__desc{font-size:1.05rem;color:#D4D4D4}
 .badge{
   align-self:flex-start;
-  font-size:.68rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+  font-size:.74rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
   color:#0D0D0D; background:var(--accent);
   padding:4px 9px; border-radius:999px; margin-bottom:2px;
 }
 .hero__cta{
   display:flex; align-items:center; justify-content:center; gap:8px;
-  min-height:50px; padding:12px 18px;
-  background:var(--btn); color:#fff; font-weight:700; font-size:1rem;
+  min-height:56px; padding:14px 18px;
+  background:var(--btn); color:#fff; font-weight:700; font-size:1.1rem;
   border-radius:12px; box-shadow:0 4px 0 var(--btn-ledge);
 }
 .card--hero:active .hero__cta{box-shadow:0 1px 0 var(--btn-ledge)}
@@ -143,22 +144,25 @@ h1{
 .chev{flex:0 0 auto;margin-left:auto;color:#5A5A5A;width:18px;height:18px}
 @media (hover:hover){.card:hover .chev{color:var(--accent)}}
 @media (max-width:400px){
-  .wrap{padding:36px 16px 44px}
-  .thumb{width:74px;height:74px}
-  .card--hero .thumb{width:84px;height:84px}
+  .wrap{padding:36px 14px 44px}
+  .thumb{width:92px;height:92px}
+  .card--hero .thumb{width:104px;height:104px}
+  .card{padding:14px;gap:12px}
+  .card__title{font-size:1.12rem}
+  .card__desc{font-size:.95rem}
   .chev{display:none}
   .card{gap:12px}
 }
 @media (min-width:600px){
-  .avatar{width:184px;height:184px}
-  h1{font-size:2.3rem}
-  .tagline{font-size:1.2rem}
+  .avatar{width:240px;height:240px}
+  h1{font-size:2.8rem}
+  .tagline{font-size:1.38rem}
 }
 </style>
 </head>
 <body>
 <main class="wrap">
-  <img class="avatar" src="/assets/avatar.webp?v=3" width="160" height="160"
+  <img class="avatar" src="/assets/avatar.webp?v=4" width="200" height="200"
        alt="Ewertton Bravo" fetchpriority="high">
   <h1>Ewertton Bravo</h1>
   <p class="tagline">Tiro cristão da procrastinação.</p>
@@ -169,7 +173,7 @@ h1{
     <a class="card card--hero" href="https://ebravoholding.com/diagnostico?utm_source=Instagram&amp;utm_medium=LinkBio&amp;utm_campaign=Diagnostico&amp;utm_content=Todos&amp;utm_term=Perfil" data-bio="diagnostico">
       <span class="badge">Gratuito</span>
       <span class="hero__top">
-        <img class="thumb" src="/assets/prod-diagnostico.webp?v=1" width="96" height="96" alt="Diagnóstico Gratuito" decoding="async">
+        <img class="thumb" src="/assets/prod-diagnostico.webp?v=2" width="116" height="116" alt="Diagnóstico Gratuito" decoding="async">
       <span class="card__body">
           <span class="card__title">Diagnóstico Gratuito</span>
           <span class="card__desc">Descubra em poucos minutos o que trava a sua execução.</span>
@@ -181,7 +185,7 @@ h1{
     </a>
 
     <a class="card" href="https://ebravoholding.com/desafio?utm_source=Instagram&amp;utm_medium=LinkBio&amp;utm_campaign=GoogleForms&amp;utm_content=Todos&amp;utm_term=Organico" data-bio="desafio-7-dias">
-      <img class="thumb" src="/assets/prod-desafio.webp?v=1" width="84" height="84" alt="Desafio 7 Dias · O Talento Enterrado" loading="lazy" decoding="async">
+      <img class="thumb" src="/assets/prod-desafio.webp?v=2" width="104" height="104" alt="Desafio 7 Dias · O Talento Enterrado" loading="lazy" decoding="async">
       <span class="card__body">
         <span class="card__title">Desafio 7 Dias · O Talento Enterrado</span>
         <span class="card__desc">7 dias para desenterrar o talento que você parou de usar.</span>
@@ -190,7 +194,7 @@ h1{
     </a>
 
     <a class="card" href="https://ebravoholding.com/pages/vida-alem-da-tela/?utm_source=Instagram&amp;utm_medium=LinkBio&amp;utm_campaign=VAT&amp;utm_content=Todos&amp;utm_term=Organico" data-bio="vida-alem-da-tela">
-      <img class="thumb" src="/assets/prod-vat.webp?v=1" width="84" height="84" alt="Vida Além da Tela" loading="lazy" decoding="async">
+      <img class="thumb" src="/assets/prod-vat.webp?v=2" width="104" height="104" alt="Vida Além da Tela" loading="lazy" decoding="async">
       <span class="card__body">
         <span class="card__title">Vida Além da Tela</span>
         <span class="card__desc">14 dias para trocar a tela pelo que importa.</span>
@@ -199,7 +203,7 @@ h1{
     </a>
 
     <a class="card" href="https://ebravoholding.com/remiyah?utm_source=Instagram&amp;utm_medium=LinkBio&amp;utm_campaign=RMA&amp;utm_content=Todos&amp;utm_term=Organico" data-bio="metodo-remiyah">
-      <img class="thumb" src="/assets/prod-remiyah.webp?v=1" width="84" height="84" alt="Método Remiyah" loading="lazy" decoding="async">
+      <img class="thumb" src="/assets/prod-remiyah.webp?v=2" width="104" height="104" alt="Método Remiyah" loading="lazy" decoding="async">
       <span class="card__body">
         <span class="card__title">Método Remiyah</span>
         <span class="card__desc">Método completo para executar com consistência.</span>
@@ -208,7 +212,7 @@ h1{
     </a>
 
     <a class="card" href="https://wa.me/5591920052300?text=Tenho%20interesse%20na%20Mentoria%20Mentorata" data-bio="mentoria-mentorata" target="_blank" rel="noopener">
-      <img class="thumb" src="/assets/prod-mentorata.webp?v=1" width="84" height="84" alt="Mentoria Mentorata" loading="lazy" decoding="async">
+      <img class="thumb" src="/assets/prod-mentorata.webp?v=2" width="104" height="104" alt="Mentoria Mentorata" loading="lazy" decoding="async">
       <span class="card__body">
         <span class="card__title">Mentoria Mentorata</span>
         <span class="card__desc">Acompanhamento direto comigo, do plano à execução.</span>
@@ -217,7 +221,7 @@ h1{
     </a>
 
     <a class="card" href="https://www.youtube.com/@ewerttonbravo" data-bio="youtube" target="_blank" rel="noopener">
-      <img class="thumb" src="/assets/prod-youtube.webp?v=1" width="84" height="84" alt="Canal do Ewertton Bravo no YouTube" loading="lazy" decoding="async">
+      <img class="thumb" src="/assets/prod-youtube.webp?v=2" width="104" height="104" alt="Canal do Ewertton Bravo no YouTube" loading="lazy" decoding="async">
       <span class="card__body">
         <span class="card__title">YouTube<svg class="title-ico ico-yt" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span>
         <span class="card__desc">Conteúdo novo toda semana sobre fé, foco e execução.</span>
@@ -226,9 +230,9 @@ h1{
     </a>
 
     <a class="card" href="https://wa.me/5591920052300" data-bio="whatsapp" target="_blank" rel="noopener">
-      <img class="thumb" src="/assets/prod-whatsapp.webp?v=1" width="84" height="84" alt="Ewertton Bravo" loading="lazy" decoding="async">
+      <img class="thumb" src="/assets/prod-whatsapp.webp?v=2" width="104" height="104" alt="Ewertton Bravo" loading="lazy" decoding="async">
       <span class="card__body">
-        <span class="card__title">Fale comigo no WhatsApp<svg class="title-ico ico-wpp" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></span>
+        <span class="card__title">Fale comigo no <span class="nowrap">WhatsApp<svg class="title-ico ico-wpp" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.044zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></span></span>
         <span class="card__desc">Dúvidas sobre produtos e mentoria, direto comigo.</span>
       </span>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
@@ -241,8 +245,8 @@ h1{
 </main>
 
 <!-- non-critical styles -->
-<link rel="stylesheet" href="/style.css?v=4" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="/style.css?v=4"></noscript>
+<link rel="stylesheet" href="/style.css?v=5" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/style.css?v=5"></noscript>
 
 <!-- Meta Pixel -->
 <script>

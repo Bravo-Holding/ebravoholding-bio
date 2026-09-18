@@ -9,7 +9,7 @@
 
 /* leve respiro tipográfico no desktop */
 @media (min-width:600px){
-  .card__title{font-size:1.12rem}
-  .card--hero .card__title{font-size:1.3rem}
-  .card__desc{font-size:.92rem}
+  .card__title{font-size:1.28rem}
+  .card--hero .card__title{font-size:1.45rem}
+  .card__desc{font-size:1.05rem}
 }
