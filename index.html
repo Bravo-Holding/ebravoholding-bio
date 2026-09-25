@@ -57,11 +57,15 @@
   --btn:#16A34A; --btn-hover:#15803D; --btn-ledge:#0E6B34;
   --red:#AD1F13;
   --card:#141414; --card-line:#262626;
+  --yellow:#F7F761; --cyan:#5FD5F5; --pink:#FF6DCB;
+  --ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
 body{
-  background:var(--bg); color:var(--text);
+  background:var(--bg);
+  background:linear-gradient(180deg,#0D0D0D 0%,#140C0A 35%,#1E0F0B 70%,#2A120C 100%);
+  color:var(--text);
   font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   line-height:1.5; -webkit-font-smoothing:antialiased;
   min-height:100vh; display:flex; justify-content:center;
@@ -70,18 +74,32 @@ body{
   width:100%; max-width:480px; padding:40px 16px 48px;
   display:flex; flex-direction:column; align-items:center;
 }
+/* anel estilo story: borda transparente mostra o gradiente, sombra inset abre o vão escuro.
+   Caixa de 216px pra foto seguir com 200px (216 = 200 + 2x4 borda + 2x4 vão). */
 .avatar{
-  width:200px; height:200px; border-radius:50%;
+  width:216px; height:216px; border-radius:50%;
   display:block; object-fit:cover;
+  padding:4px; border:4px solid transparent;
+  background:conic-gradient(from 210deg,var(--accent),var(--red),var(--yellow),var(--accent)) border-box;
+  box-shadow:inset 0 0 0 4px var(--bg),0 0 48px rgba(255,107,0,.28);
 }
 h1{
   font-family:"Fraunces",Georgia,serif; font-weight:700;
   font-size:2.4rem; letter-spacing:-.015em; margin-top:22px; text-align:center;
 }
 .tagline{
-  color:var(--red); font-weight:700; font-size:1.28rem;
+  color:#FF3B2F; font-weight:700; font-size:1.28rem;
+  text-shadow:0 0 18px rgba(255,59,47,.45);
   margin-top:8px; text-align:center;
 }
+/* marca-texto: estado final no base, varredura no keyframe (reduced-motion cai direto no final) */
+.hl{
+  color:#0D0D0D; text-shadow:none; padding:0 .14em; border-radius:3px;
+  background:linear-gradient(var(--yellow),var(--yellow)) no-repeat 0 90%/100% 88%;
+  -webkit-box-decoration-break:clone; box-decoration-break:clone;
+  animation:hl 1s .35s var(--ease) backwards;
+}
+@keyframes hl{from{background-size:0 88%;color:#FF3B2F}}
 
 /* ---- cards ---- */
 .links{
@@ -89,18 +107,44 @@ h1{
   display:flex; flex-direction:column; gap:12px;
 }
 .card{
+  --c:#3A3A3A;
   position:relative; display:flex; align-items:center; gap:14px;
   padding:16px; text-decoration:none; color:var(--text);
-  background:var(--card); border:1px solid var(--card-line);
+  background:var(--card);
+  background:color-mix(in srgb,var(--c) 25%,#0D0D0D);
+  border:3px solid color-mix(in srgb,var(--c) 32%,#1A1A1A);
+  border-left:6px solid var(--c);
   border-radius:16px;
-  transition:transform .08s ease, border-color .15s ease, background .15s ease;
+  box-shadow:0 4px 0 #000;
+  box-shadow:0 4px 0 color-mix(in srgb,var(--c) 38%,#000);
+  transition:transform .12s var(--ease), box-shadow .12s var(--ease), border-color .15s ease, background .15s ease;
+  animation:rise .45s var(--ease) backwards;
 }
-.card:active{transform:translateY(2px)}
-@media (hover:hover){.card:hover{background:#1A1A1A;border-color:#3A3A3A}}
+/* ledge afunda no toque: affordance de botão, puxa clique */
+.card:active{transform:translateY(3px);box-shadow:0 1px 0 color-mix(in srgb,var(--c) 38%,#000)}
+@media (hover:hover){
+  .card:hover{background:color-mix(in srgb,var(--c) 35%,#0D0D0D);border-color:color-mix(in srgb,var(--c) 60%,#1A1A1A);border-left-color:var(--c);transform:translateY(-2px)}
+  .card:hover .thumb{box-shadow:0 0 18px color-mix(in srgb,var(--c) 45%,transparent)}
+}
+.card[data-bio="desafio-7-dias"]{--c:var(--yellow)}
+.card[data-bio="vida-alem-da-tela"]{--c:var(--cyan)}
+.card[data-bio="metodo-remiyah"]{--c:var(--pink)}
+.card[data-bio="mentoria-mentorata"]{--c:var(--accent)}
+.card[data-bio="youtube"]{--c:#FF0000}
+.card[data-bio="whatsapp"]{--c:var(--btn)}
+.links>.card:nth-child(2){animation-delay:.05s}
+.links>.card:nth-child(3){animation-delay:.1s}
+.links>.card:nth-child(4){animation-delay:.15s}
+.links>.card:nth-child(5){animation-delay:.2s}
+.links>.card:nth-child(6){animation-delay:.25s}
+.links>.card:nth-child(7){animation-delay:.3s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
 
 .thumb{
   flex:0 0 auto; width:104px; height:104px; border-radius:14px;
   display:block; object-fit:cover; background:#1A1A1A;
+  border:2px solid var(--c,var(--accent));
+  transition:box-shadow .15s ease;
 }
 .nowrap{white-space:nowrap}
 .title-ico{width:17px;height:17px;vertical-align:-2px;margin-left:6px;flex:0 0 auto}
@@ -111,38 +155,54 @@ h1{
 .card__title{
   font-weight:700; font-size:1.2rem; line-height:1.25; letter-spacing:-.01em;
 }
-.card__desc{color:var(--muted);font-size:1rem;line-height:1.35}
+.card__desc{color:#E0E0E0;font-size:1rem;line-height:1.35}
 
 /* destaque: Diagnóstico Gratuito */
 .card--hero{
-  background:linear-gradient(180deg,#1C1208,#141414);
-  border:1.5px solid var(--accent);
-  box-shadow:0 0 0 4px rgba(255,107,0,.10);
-  padding:16px 14px 14px;
+  background:
+    radial-gradient(420px 200px at 100% 0,rgba(255,107,0,.20),transparent 70%),
+    linear-gradient(180deg,#1C1208,#141414);
+  border:3px solid var(--accent);
+  box-shadow:0 0 0 4px rgba(255,107,0,.12),0 18px 50px rgba(255,107,0,.16);
+  padding:16px 14px 16px;
   flex-direction:column; align-items:stretch; gap:12px;
 }
-@media (hover:hover){.card--hero:hover{background:linear-gradient(180deg,#241609,#161616);border-color:#FF8A2B}}
+.card--hero:active{transform:none;box-shadow:0 0 0 4px rgba(255,107,0,.12),0 18px 50px rgba(255,107,0,.16)}
+@media (hover:hover){.card--hero:hover{background:radial-gradient(420px 200px at 100% 0,rgba(255,107,0,.26),transparent 70%),linear-gradient(180deg,#241609,#161616);border-color:#FF8A2B;transform:none}}
 .hero__top{display:flex;align-items:center;gap:14px}
-.card--hero .thumb{width:116px;height:116px}
+.card--hero .thumb{width:116px;height:116px;border-color:var(--accent)}
 .card--hero .card__title{font-size:1.35rem;color:var(--accent)}
 .card--hero .card__desc{font-size:1.05rem;color:#D4D4D4}
+.card--hero .card__desc strong{color:#fff;font-weight:700}
 .badge{
   align-self:flex-start;
   font-size:.74rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
-  color:#0D0D0D; background:var(--accent);
+  color:#0D0D0D; background:var(--yellow);
   padding:4px 9px; border-radius:999px; margin-bottom:2px;
 }
 .hero__cta{
-  display:flex; align-items:center; justify-content:center; gap:8px;
-  min-height:56px; padding:14px 18px;
-  background:var(--btn); color:#fff; font-weight:700; font-size:1.1rem;
-  border-radius:12px; box-shadow:0 4px 0 var(--btn-ledge);
+  position:relative;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  min-height:58px; padding:14px 20px;
+  background:var(--btn); color:#fff; font-weight:700; font-size:1.08rem;
+  text-transform:uppercase; letter-spacing:.03em;
+  border:2px solid var(--btn-ledge); border-radius:12px;
+  box-shadow:0 5px 0 var(--btn-ledge),0 14px 34px rgba(22,163,74,.38);
+  transition:transform .12s var(--ease),box-shadow .12s var(--ease),background .15s ease;
 }
-.card--hero:active .hero__cta{box-shadow:0 1px 0 var(--btn-ledge)}
+/* pulso em opacity de pseudo-elemento: roda no compositor, não repinta o botão */
+.hero__cta::after{
+  content:""; position:absolute; inset:-2px; border-radius:inherit; pointer-events:none;
+  box-shadow:0 0 0 3px rgba(22,163,74,.55),0 0 28px 6px rgba(22,163,74,.55);
+  opacity:0; animation:pulse 2.4s 1.2s ease-in-out infinite;
+}
+@keyframes pulse{50%{opacity:1}}
+.hero__cta svg{animation:nudge 2.4s 1.2s var(--ease) infinite}
+@keyframes nudge{0%,60%,100%{transform:none}30%{transform:translateX(4px)}}
+.card--hero:active .hero__cta{transform:translateY(4px);box-shadow:0 1px 0 var(--btn-ledge),0 6px 18px rgba(22,163,74,.3)}
 @media (hover:hover){.card--hero:hover .hero__cta{background:var(--btn-hover)}}
 
-.chev{flex:0 0 auto;margin-left:auto;color:#5A5A5A;width:18px;height:18px}
-@media (hover:hover){.card:hover .chev{color:var(--accent)}}
+.chev{flex:0 0 auto;margin-left:auto;color:var(--c);width:18px;height:18px}
 @media (max-width:400px){
   .wrap{padding:36px 14px 44px}
   .thumb{width:92px;height:92px}
@@ -150,11 +210,14 @@ h1{
   .card{padding:14px;gap:12px}
   .card__title{font-size:1.12rem}
   .card__desc{font-size:.95rem}
+  .hero__cta{font-size:1rem}
   .chev{display:none}
-  .card{gap:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
 }
 @media (min-width:600px){
-  .avatar{width:240px;height:240px}
+  .avatar{width:256px;height:256px}
   h1{font-size:2.8rem}
   .tagline{font-size:1.38rem}
 }
@@ -162,10 +225,10 @@ h1{
 </head>
 <body>
 <main class="wrap">
-  <img class="avatar" src="/assets/avatar.webp?v=4" width="200" height="200"
+  <img class="avatar" src="/assets/avatar.webp?v=4" width="216" height="216"
        alt="Ewertton Bravo" fetchpriority="high">
   <h1>Ewertton Bravo</h1>
-  <p class="tagline">Tiro cristão da procrastinação.</p>
+  <p class="tagline">Tiro cristão da <span class="hl">procrastinação</span>.</p>
 
   <nav class="links" aria-label="Links">
 
@@ -176,7 +239,7 @@ h1{
         <img class="thumb" src="/assets/prod-diagnostico.webp?v=2" width="116" height="116" alt="Diagnóstico Gratuito" decoding="async">
       <span class="card__body">
           <span class="card__title">Diagnóstico Gratuito</span>
-          <span class="card__desc">Descubra em poucos minutos o que trava a sua execução.</span>
+          <span class="card__desc">Descubra o que trava sua execução e saia com <strong>seu plano de ação para os próximos 3 meses</strong>.</span>
         </span>
       </span>
       <span class="hero__cta">Fazer meu diagnóstico
