@@ -12,3 +12,5 @@ deployment:
     - /bin/cp .htaccess $DEPLOYPATH/
     - /bin/cp -r assets/. $DEPLOYPATH/assets/
     - /bin/cp -r favicon/. $DEPLOYPATH/favicon/
+    - /bin/mkdir -p $DEPLOYPATH/automacoes
+    - /bin/cp -r automacoes/. $DEPLOYPATH/automacoes/
