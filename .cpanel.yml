@@ -2,7 +2,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=$HOME/ebravoholding.com
-    - /bin/mkdir -p $DEPLOYPATH/assets $DEPLOYPATH/favicon
+    - /bin/mkdir -p $DEPLOYPATH/assets $DEPLOYPATH/favicon $DEPLOYPATH/fonts
     - /bin/cp index.html $DEPLOYPATH/
     - /bin/cp style.css $DEPLOYPATH/
     - /bin/cp robots.txt $DEPLOYPATH/
@@ -12,5 +12,6 @@ deployment:
     - /bin/cp .htaccess $DEPLOYPATH/
     - /bin/cp -r assets/. $DEPLOYPATH/assets/
     - /bin/cp -r favicon/. $DEPLOYPATH/favicon/
+    - /bin/cp -r fonts/. $DEPLOYPATH/fonts/
     - /bin/mkdir -p $DEPLOYPATH/automacoes
     - /bin/cp -r automacoes/. $DEPLOYPATH/automacoes/
